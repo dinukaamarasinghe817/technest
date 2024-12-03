@@ -1,0 +1,14 @@
+# Ignore Python bytecode
+**/__pycache__/
+
+# Ignore virtual environments
+venv/
+
+# Ignore environment variables file
+.env
+
+# Ignore database files
+*.db
+
+# Ignore log files
+*.log

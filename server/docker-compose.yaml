@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: technest
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app_network
+    ports:
+      - "3305:3306"
+    
+  web:
+    build: .
+    container_name: django_web
+    command: >
+      bash -c "
+        until mysql -h db -u root -e 'SELECT 1'; do
+          echo 'Waiting for MySQL...';
+          sleep 2;
+        done;
+        python3 manage.py makemigrations &&
+        python3 manage.py migrate &&
+        python3 manage.py runserver 0.0.0.0:8000
+      "
+    networks:
+      - app_network
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      MYSQL_HOST: db
+
+networks:
+  app_network:
+    name: app_network
+    driver: bridge
+
+volumes:
+  mysql_data:

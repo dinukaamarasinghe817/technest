@@ -7,7 +7,7 @@ function CustomerLayout({ scrollToContactUs }) {
     return (
         <div>
             <Header scrollToContactUs={scrollToContactUs} />
-            <main className={"mt-20 max-md:mt-16"}>
+            <main className={"mt-20 max-md:mt-16 flex flex-col justify-start"}>
                 <Outlet />
             </main>
             <Footer />

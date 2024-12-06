@@ -64,6 +64,8 @@ You need to have [Docker](https://www.docker.com/) and [npm](https://nodejs.org/
 
 2. Explore the app's features
 
+> **Note:** : You don't need to import the database dump manually, the `Docker` handles the import automatically.
+
 ## License
 
 This project is licensed under the MIT License. 

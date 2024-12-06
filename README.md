@@ -2,7 +2,7 @@
 
 ## Prelimineries
 
-You need to have `Docker` and `npm` installed on your computer.
+You need to have [Docker](https://www.docker.com/) and [npm](https://nodejs.org/en) installed on your computer.
 
 ## Installation
 
@@ -18,7 +18,7 @@ You need to have `Docker` and `npm` installed on your computer.
    ```
 5. Navigate to the server folder
    ```bash
-   cd server/technest
+   cd server
    ```
 6. Build the project using docker compose:
    ```bash
@@ -28,9 +28,9 @@ You need to have `Docker` and `npm` installed on your computer.
    ```bash
    docker compose up
    ```
-8. Navigate to the client directory:
+8. Open a new terminal and navigate to the client:
    ```bash
-   cd ../../client
+   cd client
    ```
 9. Install the dependencies:
    ```bash
@@ -43,6 +43,19 @@ You need to have `Docker` and `npm` installed on your computer.
 1. Use the URL given by the above command to open the website:
    ```bash
     http://localhost:5173/
+   ```
+1. Use following credentials to login:
+   ```bash
+    email: zeek@gmail.com
+    password: zeek@123
+   ```
+1. If You want to restart the application, Use following command to clean up the containers:
+   ```bash
+    cd server
+    docker compose down
+    docker volume prune -f
+    docker compose build
+    docker compose up
    ```
 
 ## Usage
